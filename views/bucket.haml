@@ -1,8 +1,10 @@
 #content 
+  .navigation
+    %a(href="/") Buckets 
+    &raquo;
+    %strong= @bucket.name
   .bucket
   
-  %strong= @bucket.name
-
   %ul
   - @keys.each do |key|
     %li

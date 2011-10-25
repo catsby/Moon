@@ -24,4 +24,10 @@ class SinatraRiak < Sinatra::Base
     haml :bucket
   end
 
+  get '/bucket/:name/:key' do |name, key|
+    @bucket = @client.bucket(name)
+    @key    = @bucket.get(key)
+    haml :key
+  end
+
 end

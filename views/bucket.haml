@@ -1,0 +1,9 @@
+#content 
+  .bucket
+  
+  %strong= @bucket.name
+
+  %ul
+  - @keys.each do |key|
+    %li
+      %a(href="/bucket/#{@bucket.name}/#{key}")= key

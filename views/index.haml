@@ -1,0 +1,9 @@
+#content 
+  .bucket-list
+  
+  %strong Buckets
+  %ul
+  - @buckets.each do |b|
+    %li 
+      %a(href="/bucket/#{b.name}")= b.name
+

@@ -10,7 +10,7 @@ class SinatraRiak < Sinatra::Base
   set :haml, :format => :html5
 
   before do 
-    @client = Riak::Client.new(:port => 8091)
+    @client = Riak::Client.new(:host => 'localhost', :port => 8091)
   end
 
   get '/' do

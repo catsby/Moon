@@ -1,40 +1,39 @@
-#content
-  .navigation
-    %a(href="/") Buckets 
-    &raquo;
-    %a(href="/bucket/#{@key.bucket}")= @key.bucket.name
-    &raquo;
-    %strong= @key.key
-  .key
+.navigation
+  %a(href="/") Buckets 
+  &raquo;
+  %a(href="/bucket/#{@key.bucket}")= @key.bucket.name
+  &raquo;
+  %strong= @key.key
+.key
 
 
-  %table
-    %thead
-      %tr
-        %th Key
-        %th Value
-    %tbody
-      %tr
-        %td Last Modified
-        %td= @key.last_modified
-      %tr
-        %td Content type
-        %td= @key.content_type
-      %tr
-        %td Data URL
-        %td 
-          %a(href="#{@key.url}"){:target=>"_blank"} View
-      %tr
-        %td Links
-        %td
-          %br/ 
-          - @key.links.each do |link|
-            =link.tag 
-            %a(href="/bucket/#{link.bucket}/#{link.key}")= link.key
-            =@key.url
-            %br/
-      %tr
-        %td Object
-        %td
-          %iframe{'id' => 'object_value', 
-                 'src' => "#{@key.url}"}
+%table
+  %thead
+    %tr
+      %th Key
+      %th Value
+  %tbody
+    %tr
+      %td Last Modified
+      %td= @key.last_modified
+    %tr
+      %td Content type
+      %td= @key.content_type
+    %tr
+      %td Data URL
+      %td 
+        %a(href="#{@key.url}"){:target=>"_blank"} View
+    %tr
+      %td Links
+      %td
+        %br/ 
+        - @key.links.each do |link|
+          =link.tag 
+          %a(href="/bucket/#{link.bucket}/#{link.key}")= link.key
+          =@key.url
+          %br/
+    %tr
+      %td Object
+      %td
+        %iframe{'id' => 'object_value', 
+               'src' => "#{@key.url}"}

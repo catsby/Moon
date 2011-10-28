@@ -1,11 +1,10 @@
-#content 
-  .navigation
-    %a(href="/") Buckets 
-    &raquo;
-    %strong= @bucket.name
-  .bucket
-  
-  %ul
-  - @keys.each do |key|
-    %li
-      %a(href="/bucket/#{@bucket.name}/#{key}")= key
+.navigation
+  %a(href="/") Buckets 
+  &raquo;
+  %strong= @bucket.name
+.bucket
+
+%ul
+- @keys.each do |key|
+  %li
+    %a(href="/bucket/#{@bucket.name}/#{key}")= key
